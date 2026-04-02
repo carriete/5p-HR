@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hybrid HR — Hiring Signal Engine: Competitive Analysis</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e0e0e0; padding: 24px; }
+
+  h1 { text-align: center; font-size: 28px; margin-bottom: 8px; color: #fff; }
+  .subtitle { text-align: center; color: #888; font-size: 14px; margin-bottom: 24px; }
+
+  /* Filter bar */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+  .filter-btn { padding: 6px 16px; border-radius: 20px; border: 1px solid #333; background: #1a1d27; color: #aaa; cursor: pointer; font-size: 13px; transition: all .2s; }
+  .filter-btn:hover, .filter-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid #222; }
+  table { border-collapse: collapse; width: 100%; min-width: 1600px; font-size: 12.5px; line-height: 1.45; }
+
+  th, td { padding: 10px 12px; border: 1px solid #222; vertical-align: top; }
+
+  /* Header row */
+  thead th { background: #1a1d27; color: #fff; font-weight: 700; position: sticky; top: 0; z-index: 10; text-align: center; font-size: 13px; }
+  thead th:first-child { text-align: left; min-width: 180px; }
+
+  /* Company columns */
+  .col-scalis { background: #1a1a2e; }
+  .col-seekout { background: #16213e; }
+  .col-loxo { background: #1a1a2e; }
+  .col-juicebox { background: #16213e; }
+  .col-hybrid { background: #0d2818 !important; border-left: 2px solid #22c55e !important; border-right: 2px solid #22c55e !important; }
+
+  /* Section headers */
+  .section-header td { background: #2563eb; color: #fff; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; padding: 8px 12px; }
+
+  /* Row label */
+  td:first-child { background: #13151d; font-weight: 600; color: #ccc; min-width: 180px; white-space: nowrap; }
+
+  /* Highlight column header */
+  .star { color: #fbbf24; }
+
+  /* Tags */
+  .tag-green { background: #166534; color: #86efac; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-red { background: #7f1d1d; color: #fca5a5; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-yellow { background: #713f12; color: #fde68a; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-blue { background: #1e3a5f; color: #93c5fd; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+
+  /* Compact list */
+  .clist { padding-left: 14px; margin: 4px 0; }
+  .clist li { margin-bottom: 3px; }
+
+  /* Responsive */
+  @media (max-width: 900px) { body { padding: 8px; } table { font-size: 11px; } th, td { padding: 6px 8px; } }
+
+  /* Sticky first column */
+  td:first-child, th:first-child { position: sticky; left: 0; z-index: 5; }
+  thead th:first-child { z-index: 15; }
+
+  .legend { text-align: center; margin-top: 16px; font-size: 12px; color: #666; }
+  .legend span { margin: 0 12px; }
+</style>
+</head>
+<body>
+
+<h1>Competitive Analysis: Hiring Signal Engine</h1>
+<p class="subtitle">Hybrid HR vs. Scalis · SeekOut · Loxo · JuiceBox | Обновлено: Апрель 2026</p>
+
+<div class="filters">
+  <button class="filter-btn active" onclick="filterSection('all')">Все блоки</button>
+  <button class="filter-btn" onclick="filterSection('general')">General</button>
+  <button class="filter-btn" onclick="filterSection('product')">Product</button>
+  <button class="filter-btn" onclick="filterSection('price')">Price</button>
+  <button class="filter-btn" onclick="filterSection('place')">Place</button>
+  <button class="filter-btn" onclick="filterSection('promotion')">Promotion</button>
+  <button class="filter-btn" onclick="filterSection('people')">People</button>
+</div>
+
+<div class="table-wrap">
+<table id="mainTable">
+<thead>
+<tr>
+  <th>Измерение / Компания →</th>
+  <th>SCALIS</th>
+  <th>SEEKOUT</th>
+  <th>LOXO</th>
+  <th>JUICEBOX</th>
+  <th class="col-hybrid"><span class="star">⭐</span> HYBRID HR<br><small>Hiring Signal Engine</small></th>
+</tr>
+</thead>
+<tbody>
+
+<!-- ═══════════════ GENERAL ═══════════════ -->
+<tr class="section-header" data-section="general"><td colspan="6">GENERAL</td></tr>
+
+<tr data-section="general">
+  <td>Год / HQ / Статус</td>
+  <td class="col-scalis">2022 · Miami, FL<br>Bootstrapped / unfunded<br>LvlUp Ventures (минорный)<br>27 сотрудников</td>
+  <td class="col-seekout">2016 · Bellevue, WA<br>Series C: $115M (Tiger Global)<br>Всего: ~$186M<br>Пик оценка: $1.2B → $435M (2024)<br>186 сотрудников</td>
+  <td class="col-loxo">2012 · Austin, TX<br>Growth PE: $115M (Tritium Partners, фев 2025)<br>Оценка: N/D<br>89 сотрудников<br><span class="tag-green">$1.27M rev/employee</span></td>
+  <td class="col-juicebox">2022 · San Francisco, CA<br>YC S22 · Series B: $80M (DST Global, март 2026)<br>Всего: $116M<br>Оценка: <span class="tag-green">$850M</span><br>35 сотрудников</td>
+  <td class="col-hybrid">2025 · Dubai/Remote<br>Pre-revenue / MVP stage<br>Bootstrapped<br>Launchbay Capital umbrella<br><span class="tag-yellow">⚠️ Ранняя стадия</span></td>
+</tr>
+
+<tr data-section="general">
+  <td>Фаундеры / Лидерство</td>
+  <td class="col-scalis">Parker Amoroso (CEO, Stanford)<br>Brandon Amoroso (Co-Founder, ex-Electriq → DRINKS.com)</td>
+  <td class="col-seekout">Anoop Gupta (CEO, ex-Microsoft Research 18 лет, Stanford prof.)<br>Aravind Bala (Co-Founder, ex-Bing)<br>John Tippett, Vikas Manocha</td>
+  <td class="col-loxo">Matt Chambers (Founder & CEO)<br>Ilia Cheishvili (CTO)<br>Paul Bartlett (Exec. Chairman, фев 2025, 20+ лет enterprise)</td>
+  <td class="col-juicebox">David Paffenholz (CEO, ex-Snap Growth, Harvard)<br>Ishan Gupta (Co-Founder, ex-BlueLearn, Dartmouth)<br>Начали в 22 и 19 лет</td>
+  <td class="col-hybrid">—</td>
+</tr>
+
+<!-- ═══════════════ PRODUCT ═══════════════ -->
+<tr class="section-header" data-section="product"><td colspan="6">PRODUCT</td></tr>
+
+<tr data-section="product">
+  <td>Основной продукт</td>
+  <td class="col-scalis"><b>Unified ATS + Job Board</b><br>• Первый в мире ATS со встроенной job board<br>• AI-агент "Bella" — автономный рекрутинг<br>• 700M+ профилей кандидатов<br>• AI interview notetaker + auto-scoring</td>
+  <td class="col-seekout"><b>AI Talent Intelligence Platform</b><br>• SeekOut Recruit — AI sourcing<br>• SeekOut Assist — GPT-4 copilot<br>• SeekOut Spot — аgentic AI recruiting service<br>• SeekOut Grow — internal talent marketplace<br>• 1B+ профилей</td>
+  <td class="col-loxo"><b>Talent Intelligence Platform</b><br>• Unified ATS + CRM + Sourcing<br>• AI Copilot: sourcing, ranking, matching<br>• 1.2B профилей из 100+ источников<br>• Deals Module (BD CRM)<br>• Outreach GPT<br>• Natural Language Search (2025)</td>
+  <td class="col-juicebox"><b>PeopleGPT — AI People Search</b><br>• LLM-powered natural language search<br>• 800M+ профилей из 30+ источников<br>• Autonomous AI agents: search → screen → outreach<br>• 200M+ профилей с контактами<br>• До 35 персонализированных писем/день</td>
+  <td class="col-hybrid"><b>Hiring Signal Engine</b><br>• <span class="tag-green">✅ УНИКАЛЬНО</span>: Мониторинг вакансий как buying signals<br>• ICP scoring (50–100 баллов)<br>• Auto-enrichment (Apollo + Hunter.io)<br>• Claude AI: генерация персонализированных писем<br>• Multi-channel outreach: Email + LinkedIn + Phone<br>• AI-классификация ответов<br>• HubSpot CRM sync + Slack уведомления</td>
+</tr>
+
+<tr data-section="product">
+  <td>Ключевые отличия</td>
+  <td class="col-scalis">• Network effects: данные всех клиентов обучают AI<br>• Двусторонняя платформа (employer + seeker)<br>• Unlimited jobs/users на всех тарифах<br>• <span class="tag-red">❌ НЕ для агентств — для корпоратов</span></td>
+  <td class="col-seekout">• 60+ DEI фильтров (diversity hiring)<br>• Blind hire mode<br>• "Hidden talent" — находит кого не видит LinkedIn<br>• GitHub, патенты, alumni networks<br>• <span class="tag-red">❌ НЕ инструмент BD/outreach</span></td>
+  <td class="col-loxo">• Всё-в-одном: ATS+CRM+sourcing+BD<br>• Self-refreshing database<br>• Account-Based Prospecting (2025)<br>• 98% customer satisfaction<br>• <span class="tag-green">✅ Deals module = BD CRM</span><br>• <span class="tag-yellow">⚠️ Конкурент по BD для агентств</span></td>
+  <td class="col-juicebox">• $0 до Scale: PLG без sales team<br>• Natural language > Boolean search<br>• Sequoia + DST Global backing<br>• 3× ARR рост за 9 мес.<br>• <span class="tag-red">❌ НЕ для BD — только sourcing кандидатов</span></td>
+  <td class="col-hybrid">• <span class="tag-green">✅ ЕДИНСТВЕННЫЙ signal-based BD для агентств</span><br>• <span class="tag-green">✅ Конкуренты = sourcing кандидатов; мы = sourcing клиентов</span><br>• Вакансии = proof of buying intent<br>• Claude AI персонализация &gt; шаблоны<br>• Real-time Adzuna monitoring (5 мин цикл)<br>• <span class="tag-green">✅ Ниша BD automation свободна</span></td>
+</tr>
+
+<tr data-section="product">
+  <td>База данных / Объём</td>
+  <td class="col-scalis">• 700M+ профилей кандидатов<br>• 70,000+ вакансий на job board<br>• 2,000+ листингов компаний</td>
+  <td class="col-seekout">• 1B+ профилей<br>• 30M+ новых профилей / квартал<br>• 300+ Power Filters</td>
+  <td class="col-loxo">• 1.2B профилей<br>• 800M+ с контактами<br>• 100+ источников данных<br>• Миллионы компаний</td>
+  <td class="col-juicebox">• 800M+ профилей<br>• 200M+ с контактами<br>• 30+ источников<br>• 560K+ поисков выполнено</td>
+  <td class="col-hybrid">• Adzuna API: миллионы вакансий<br>• Apollo Basic: enrichment<br>• Hunter.io: fallback emails<br>• <span class="tag-yellow">⚠️ Нет собственной базы кандидатов</span><br>• <span class="tag-green">✅ Фокус: компании-клиенты, не кандидаты</span></td>
+</tr>
+
+<tr data-section="product">
+  <td>AI / Технологии</td>
+  <td class="col-scalis">• "Bella" AI Agent<br>• AI interview notetaker<br>• Auto-scorecard generation<br>• Learning AI from hiring data</td>
+  <td class="col-seekout">• GPT-4 (Assist)<br>• Conversational search<br>• Agentic AI (Spot)<br>• Bias auditing<br>• Rubric auto-creation</td>
+  <td class="col-loxo">• AI Copilot<br>• Natural Language Search<br>• Outreach GPT<br>• Self-refreshing DB<br>• AI Notetaker<br>• Fleet of AI agents</td>
+  <td class="col-juicebox">• LLM-powered search<br>• Amazon OpenSearch vector DB<br>• Autonomous outreach agents<br>• AI-Spotlight: объясняет почему кандидат подходит</td>
+  <td class="col-hybrid">• <span class="tag-green">✅ Claude AI</span>: генерация писем + классификация ответов<br>• ICP scoring алгоритм<br>• Signal detection pipeline<br>• Event-driven sequence engine<br>• Multi-tenant architecture</td>
+</tr>
+
+<tr data-section="product">
+  <td>Интеграции</td>
+  <td class="col-scalis">• 100+ интеграций<br>• 30+ job boards<br>• HRIS: Gusto, ADP, Workday HCM<br>• Microsoft AppSource</td>
+  <td class="col-seekout">• Workday, Greenhouse, iCIMS<br>• Lever, Bullhorn, SAP SF<br>• SmartRecruiters<br>• Talent Rediscovery sync</td>
+  <td class="col-loxo">• Willo (video), MS Teams, Slack<br>• Loxo Marketplace<br>• Open API<br>• Unified.to integration API<br>• Built-in ATS/CRM (не нужны внешние)</td>
+  <td class="col-juicebox">• 50+ ATS: Greenhouse, Lever, Ashby, Workday, iCIMS...<br>• CRM: Salesforce, HubSpot<br>• Merge Unified ATS API<br>• AWS OpenSearch</td>
+  <td class="col-hybrid">• Adzuna API (signals)<br>• Apollo + Hunter.io (enrichment)<br>• Brevo (email)<br>• PhantomBuster (LinkedIn)<br>• HubSpot CRM<br>• Slack (notifications)<br>• Calendly (booking)</td>
+</tr>
+
+<!-- ═══════════════ PRICE ═══════════════ -->
+<tr class="section-header" data-section="price"><td colspan="6">PRICE</td></tr>
+
+<tr data-section="price">
+  <td>Прайсинг</td>
+  <td class="col-scalis">&lt;50 чел: <b>$99/мес</b><br>51–100: $249/мес<br>101–250: $599/мес<br>251+: Custom<br><span class="tag-green">✅ Unlimited jobs + users</span><br>Job seekers: $0 (→ $4.99 план)</td>
+  <td class="col-seekout">Essentials: <b>$3K–6K/seat/год</b><br>Professional: $5K–9K/seat/год<br>Enterprise: $8K–15K+/seat/год<br>Avg: ~$27K/год<br>Spot: per-role pricing<br><span class="tag-red">❌ Дорого для SMB</span></td>
+  <td class="col-loxo">Free: $0 (базовый)<br>Basic: <b>$169/user/мес</b> (annual)<br>Professional: Custom<br>Enterprise: Custom<br>Add-ons: Connect, Outreach, Copilot</td>
+  <td class="col-juicebox">Free: $0<br>Starter: <b>$119/мес</b> (1 seat, 250 credits)<br>Growth: $179/мес (750 credits)<br>Business: Custom<br>Annual: −25%<br><span class="tag-green">✅ Дешевле LinkedIn Recruiter ($1K+)</span></td>
+  <td class="col-hybrid">• <span class="tag-yellow">⚠️ Прайсинг не финализирован</span><br>• Вероятно: SaaS подписка по тарифам<br>• Привязка к объёму: сигналы, emails, обогащения<br>• API costs: Apollo, Adzuna, Brevo, Hunter.io<br>• <span class="tag-green">✅ ROI: emails → meetings → deals</span></td>
+</tr>
+
+<tr data-section="price">
+  <td>Модель монетизации</td>
+  <td class="col-scalis">• SaaS subscription<br>• Tiered by headcount<br>• PLG: free trial → paid<br>• Двусторонняя: employer + seeker revenue</td>
+  <td class="col-seekout">• SaaS subscription (seat-based)<br>• + Services: SeekOut Spot<br>• Enterprise sales-driven<br>• Upsell: seats + tier upgrades</td>
+  <td class="col-loxo">• SaaS subscription (per-user)<br>• Data/Contact enrichment upsell<br>• Feature tier upsell (modules)<br>• <span class="tag-green">✅ $112.6M ARR</span></td>
+  <td class="col-juicebox">• Freemium SaaS<br>• Seat-based + credit system<br>• PLG: $0 → Starter → Enterprise<br>• <span class="tag-green">✅ ~$30M ARR (март 2026)</span></td>
+  <td class="col-hybrid">• SaaS subscription (план)<br>• Per-tenant / per-agency<br>• Usage-based tiers возможны<br>• <span class="tag-yellow">⚠️ Ещё не валидировано</span></td>
+</tr>
+
+<tr data-section="price">
+  <td>Масштаб / Финансы</td>
+  <td class="col-scalis">• Revenue: N/D<br>• Bootstrapped<br>• 27 сотрудников<br>• 70K+ вакансий на платформе<br>• <span class="tag-yellow">⚠️ Ранняя стадия, нет метрик</span></td>
+  <td class="col-seekout">• Revenue 2024: <b>$25.2M</b><br>• Пик оценки: $1.2B → $435M<br>• 750–1,000+ клиентов<br>• <span class="tag-red">❌ Burn ratio 2:1</span><br>• <span class="tag-red">❌ 2 волны layoffs (2023, 2024)</span></td>
+  <td class="col-loxo">• Revenue 2024: <b>$112.6M</b><br>• 13,200+ клиентов<br>• $115M PE investment (2025)<br>• 89 сотрудников<br>• <span class="tag-green">✅ Rev/employee: $1.27M</span></td>
+  <td class="col-juicebox">• ARR: <b>~$30M</b> (март 2026)<br>• 5,000+ клиентов<br>• 3× рост за 9 мес.<br>• Оценка: $850M<br>• 35 сотрудников<br>• <span class="tag-green">✅ Гипер-рост</span></td>
+  <td class="col-hybrid">• Revenue: <b>$0</b> (pre-revenue)<br>• MVP в разработке<br>• 3 пилотных клиента (план)<br>• <span class="tag-yellow">⚠️ Нужна валидация PMF</span></td>
+</tr>
+
+<!-- ═══════════════ PLACE ═══════════════ -->
+<tr class="section-header" data-section="place"><td colspan="6">PLACE — ДИСТРИБЬЮЦИЯ</td></tr>
+
+<tr data-section="place">
+  <td>Модель дистрибьюции</td>
+  <td class="col-scalis">• D2C self-service SaaS<br>• PLG: free trial → paid<br>• Нет sales team<br>• Двусторонняя платформа (employer + seeker)</td>
+  <td class="col-seekout">• Enterprise sales (консультативные)<br>• НЕ PLG<br>• Custom quotes<br>• Account-based strategy<br>• Spot: services + SaaS hybrid</td>
+  <td class="col-loxo">• Enterprise sales + Freemium<br>• Direct sales team<br>• Account management + CSM<br>• Consultative approach<br>• Free tier для SMB onboarding</td>
+  <td class="col-juicebox">• <span class="tag-green">✅ 100% PLG</span> (до Series A — $0 sales spend)<br>• Word-of-mouth organic<br>• Теперь: строят enterprise sales<br>• London office 2026</td>
+  <td class="col-hybrid">• D2C + direct outbound sales<br>• Пилоты: 3 рекрутинговых агентства<br>• <span class="tag-green">✅ Product = собственный BD showcase</span><br>• Потенциально: channel через HR ассоциации</td>
+</tr>
+
+<tr data-section="place">
+  <td>Каналы / Партнёры</td>
+  <td class="col-scalis">• 30+ job boards (LinkedIn бесплатно)<br>• 100+ интеграций<br>• Fractional People People (HR consultant)<br>• Microsoft AppSource</td>
+  <td class="col-seekout">• ATS: Workday, Greenhouse, iCIMS, Lever<br>• SAP SuccessFactors (Technology Partner)<br>• Marketplace integrations<br>• Enterprise relationships</td>
+  <td class="col-loxo">• Loxo Marketplace<br>• Open API<br>• Hireflix, Willo, Unified.to<br>• Referral + marketing partnerships<br>• Dublin office (EMEA)</td>
+  <td class="col-juicebox">• 50+ ATS integrations<br>• Merge Unified API<br>• AWS (OpenSearch)<br>• Sequoia network<br>• YC alumni network</td>
+  <td class="col-hybrid">• Adzuna, Apollo, Hunter.io<br>• HubSpot, Brevo, PhantomBuster<br>• <span class="tag-yellow">⚠️ Нет партнёрской сети пока</span><br>• Потенциально: Staffing associations, HR tech events</td>
+</tr>
+
+<tr data-section="place">
+  <td>География</td>
+  <td class="col-scalis">• США (Miami HQ)<br>• GDPR DPA доступен<br>• <span class="tag-red">❌ Нет международного присутствия</span></td>
+  <td class="col-seekout">• США: 87.5% клиентов<br>• Канада: 3.3%<br>• UK: 2.3%<br>• <span class="tag-red">❌ Слабое покрытие вне US</span></td>
+  <td class="col-loxo">• США (Austin HQ)<br>• EMEA: Dublin office (2021)<br>• UK: юр. лица<br>• 13,200+ клиентов глобально<br>• <span class="tag-green">✅ Международная экспансия</span></td>
+  <td class="col-juicebox">• США (SF HQ)<br>• London office (2026 план)<br>• 5,000+ клиентов глобально<br>• 800M+ профилей глобально</td>
+  <td class="col-hybrid">• Dubai / Remote<br>• Фокус: MENA + англоязычные рынки<br>• Adzuna: UK, US, AU, DE, FR...<br>• <span class="tag-green">✅ MENA — белое пятно для конкурентов</span></td>
+</tr>
+
+<!-- ═══════════════ PROMOTION ═══════════════ -->
+<tr class="section-header" data-section="promotion"><td colspan="6">PROMOTION</td></tr>
+
+<tr data-section="promotion">
+  <td>Каналы привлечения</td>
+  <td class="col-scalis">• "Career Hack" podcast (30+ эпизодов)<br>• Brandon Hall Group PR<br>• SEO + content<br>• Free trial PLG<br>• <span class="tag-yellow">⚠️ Нет G2 reviews пока</span></td>
+  <td class="col-seekout">• Enterprise sales team<br>• LinkedIn + thought leadership<br>• HR conferences<br>• Analyst relations (Gartner, G2)<br>• G2: 4.5/5 (759 reviews)<br>• Capterra: 4.7/5 (189 reviews)</td>
+  <td class="col-loxo">• Thought leadership + whitepapers<br>• Industry publications<br>• Blog: recruiting strategies<br>• Podcasts (RecWired, Tim Sackett)<br>• G2: 4.6/5 (161 reviews) — #1 Leader<br>• Capterra: 4.6/5 (126 reviews)</td>
+  <td class="col-juicebox">• 100% word-of-mouth (до Series A)<br>• Product Hunt launch<br>• TechCrunch coverage<br>• SEO: competitor comparison blog<br>• Capterra: 4.6/5 (11 reviews)<br>• <span class="tag-green">✅ Zero marketing spend → $10M ARR</span></td>
+  <td class="col-hybrid">• <span class="tag-green">✅ Продукт = свой лучший маркетинг</span><br>• Собственный BD engine демонстрирует ценность<br>• Staffing industry events<br>• Content marketing (hiring signals тренд)<br>• <span class="tag-yellow">⚠️ Нет brand awareness пока</span></td>
+</tr>
+
+<tr data-section="promotion">
+  <td>Бренд / Стратегия</td>
+  <td class="col-scalis">"Hiring Shouldn't Suck"<br>Демократизация ATS<br>Low-cost leader<br>Anti-establishment positioning</td>
+  <td class="col-seekout">"Agentic AI Talent Company"<br>DEI-first messaging<br>Hidden talent discovery<br>Enterprise credibility (Tiger Global)</td>
+  <td class="col-loxo">"#1 Talent Intelligence Platform"<br>"Best LinkedIn Recruiter Alternative"<br>Replace fragmented tools<br>Purpose-built for agencies</td>
+  <td class="col-juicebox">"AI-native recruiting platform"<br>Turning recruiting into outbound sales<br>Sequoia-backed credibility<br>Founders' youth = innovation narrative</td>
+  <td class="col-hybrid">"BD on autopilot для рекрутинговых агентств"<br>Signal-based ≠ spray-and-pray<br>Hiring intent = buying intent<br><span class="tag-green">✅ Категория: создаём новую нишу</span></td>
+</tr>
+
+<!-- ═══════════════ PEOPLE ═══════════════ -->
+<tr class="section-header" data-section="people"><td colspan="6">PEOPLE</td></tr>
+
+<tr data-section="people">
+  <td>Покупатели / Клиенты</td>
+  <td class="col-scalis">• SMB → Mid-Market (50–1,000 сотр.)<br>• Корпоративные HR/TA<br>• Non-profits<br>• + Job seekers (dual-sided)</td>
+  <td class="col-seekout">• Enterprise (10,000+ сотр.) — основной<br>• HP, 1Password, Discord, Peraton<br>• DEI-ориентированные организации<br>• Tech-heavy industries</td>
+  <td class="col-loxo">• Executive search firms<br>• Staffing agencies<br>• RPO провайдеры<br>• In-house recruiting<br>• 13,200+ клиентов</td>
+  <td class="col-juicebox">• Рекрутеры / Sourcers<br>• TA teams (startup → Fortune 100)<br>• Agencies<br>• Sales teams (outbound)<br>• Ramp, Perplexity, OpenAI, Quora</td>
+  <td class="col-hybrid">• <span class="tag-green">✅ Рекрутинговые агентства (1–20+ рекрутеров)</span><br>• IT staffing agencies (приоритет)<br>• HR staffing agencies<br>• Boutique + mid-size agencies<br>• <span class="tag-green">✅ НЕ корпоратам, а агентствам</span></td>
+</tr>
+
+<tr data-section="people">
+  <td>Целевой сегмент / USP</td>
+  <td class="col-scalis">• Корпоративный hiring<br>• Low-cost ATS<br>• <span class="tag-red">❌ НЕ агентства</span><br>• <span class="tag-red">❌ НЕ BD automation</span></td>
+  <td class="col-seekout">• Enterprise talent sourcing<br>• Diversity hiring<br>• Internal mobility<br>• <span class="tag-red">❌ НЕ агентства</span><br>• <span class="tag-red">❌ НЕ BD</span></td>
+  <td class="col-loxo">• <span class="tag-yellow">⚠️ ОСНОВНОЙ КОНКУРЕНТ</span><br>• Agencies: ATS+CRM+Sourcing+BD<br>• Deals Module = BD CRM<br>• НО: не signal-based, не автоматический BD<br>• <span class="tag-green">✅ Мы дополняем, а не замещаем Loxo</span></td>
+  <td class="col-juicebox">• Candidate sourcing (search + outreach)<br>• Рекрутеры + sales<br>• <span class="tag-red">❌ НЕ BD для агентств</span><br>• <span class="tag-red">❌ НЕ client acquisition</span></td>
+  <td class="col-hybrid">• <span class="tag-green">✅ BD AUTOMATION — категория, которую НЕТ у конкурентов</span><br>• Конкуренты = sourcing кандидатов<br>• Мы = sourcing КЛИЕНТОВ для агентств<br>• Hiring signals = proof of intent<br>• <span class="tag-green">✅ Можем быть add-on к Loxo/JuiceBox</span></td>
+</tr>
+
+<tr data-section="people">
+  <td>Конкурентная карта</td>
+  <td class="col-scalis">vs. Greenhouse, Lever, Ashby, SmartRecruiters, Eightfold</td>
+  <td class="col-seekout">vs. Eightfold AI, LinkedIn Recruiter, HireEZ, Gem, Entelo, Phenom</td>
+  <td class="col-loxo">vs. LinkedIn Recruiter, Bullhorn, Crelate, Greenhouse, JazzHR, Lever, Invenias</td>
+  <td class="col-juicebox">vs. SeekOut, Gem, HireEZ, Findem, LinkedIn Recruiter, Loxo</td>
+  <td class="col-hybrid">• <span class="tag-green">✅ Нет прямых конкурентов в signal-based BD</span><br>• Непрямые: Loxo Deals, Apollo.io, Instantly.ai, Lemlist<br>• Партнёрский потенциал: интеграция с Loxo/JuiceBox</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="legend">
+  <span><span class="tag-green">✅ Преимущество</span></span>
+  <span><span class="tag-red">❌ Слабость / отсутствует</span></span>
+  <span><span class="tag-yellow">⚠️ Внимание / риск</span></span>
+  <span><span class="tag-blue">ℹ️ Информация</span></span>
+</div>
+
+<script>
+function filterSection(section) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const rows = document.querySelectorAll('tbody tr');
+  rows.forEach(row => {
+    if (section === 'all') {
+      row.style.display = '';
+    } else {
+      const rowSection = row.getAttribute('data-section');
+      row.style.display = (rowSection === section) ? '' : 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
